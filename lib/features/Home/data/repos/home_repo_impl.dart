@@ -10,7 +10,7 @@ class HomeRepoIPmpl implements HomeRepo {
 
   HomeRepoIPmpl({required this.apiService});
   @override
-  Future<Either<Failure, List<BookModel>>> fetshNewsetSellerBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetshNewsetBooks() async {
     try {
       var data = await apiService.get(
         endPoint:
