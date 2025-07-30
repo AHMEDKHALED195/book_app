@@ -27,7 +27,8 @@ class Book extends StatelessWidget {
                 ..fetchFeatureBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(getit.get<HomeRepoIPmpl>()),
+          create: (context) =>
+              NewestBooksCubit(getit.get<HomeRepoIPmpl>())..fetchNewestBooks(),
         ),
       ],
       child: GetMaterialApp(
