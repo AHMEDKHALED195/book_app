@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
-
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key, required this.imageUrl});
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,7 +14,7 @@ class CustomListViewItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage('assets/images/test.png'),
+              image: NetworkImage(imageUrl),
             ),
           ),
         ),

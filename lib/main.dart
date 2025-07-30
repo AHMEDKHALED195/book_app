@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  setup();
   runApp(const Book());
 }
 
@@ -21,7 +22,9 @@ class Book extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getit.get<HomeRepoIPmpl>()),
+          create: (context) =>
+              FeaturedBooksCubit(getit.get<HomeRepoIPmpl>())
+                ..fetchFeatureBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(getit.get<HomeRepoIPmpl>()),

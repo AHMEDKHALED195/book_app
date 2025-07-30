@@ -37,20 +37,5 @@ class HomeViewBody extends StatelessWidget {
         ),
       ],
     );
-
-    // Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal: 30),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       CustomAppBar(),
-    //       FeaturedListView(),
-    //       SizedBox(height: 40),
-    //       Text('Best Seller', style: Styles.textStyle18),
-    //       SizedBox(height: 20),
-    //       BestSallerListView(),
-    //     ],
-    //   ),
-    // );
   }
 }

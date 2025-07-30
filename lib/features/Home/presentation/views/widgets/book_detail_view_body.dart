@@ -23,7 +23,10 @@ class BookDetailViewBody extends StatelessWidget {
                 CustomBookDetailsAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.16),
-                  child: CustomListViewItem(),
+                  child: CustomBookImage(
+                    imageUrl:
+                        'https://ichef.bbci.co.uk/ace/standard/800/cpsprodpb/3b56/live/e1c18ae0-438e-11f0-9949-0316ffad8e61.jpg.webp',
+                  ),
                 ),
                 const SizedBox(height: 43),
                 Text(
