@@ -1,4 +1,3 @@
-import 'package:book_app/features/Home/presentation/views/widgets/best_saler_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {

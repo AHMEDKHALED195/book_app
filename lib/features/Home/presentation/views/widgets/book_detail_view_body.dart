@@ -1,4 +1,5 @@
 import 'package:book_app/core/utlis/style.dart';
+import 'package:book_app/features/Home/data/models/book_model/book_model.dart';
 import 'package:book_app/features/Home/presentation/views/widgets/book_rating.dart';
 import 'package:book_app/features/Home/presentation/views/widgets/books_action.dart';
 import 'package:book_app/features/Home/presentation/views/widgets/custom_book_details_app_bar.dart';
@@ -7,8 +8,8 @@ import 'package:book_app/features/Home/presentation/views/widgets/similar_books_
 import 'package:flutter/material.dart';
 
 class BookDetailViewBody extends StatelessWidget {
-  const BookDetailViewBody({super.key});
-
+  const BookDetailViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -21,25 +22,31 @@ class BookDetailViewBody extends StatelessWidget {
             child: Column(
               children: [
                 CustomBookDetailsAppBar(),
+
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width * 0.16),
-                  child: CustomBookImage(
-                    imageUrl:
-                        'https://ichef.bbci.co.uk/ace/standard/800/cpsprodpb/3b56/live/e1c18ae0-438e-11f0-9949-0316ffad8e61.jpg.webp',
+                  child: SizedBox(
+                    height: 400,
+                    width: 300,
+                    child: CustomBookImage(
+                      imageUrl:
+                          bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+                    ),
                   ),
                 ),
                 const SizedBox(height: 43),
                 Text(
-                  'The Jungle Book',
+                  bookModel.volumeInfo.title ?? '',
                   style: Styles.textStyle30.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 6),
                 Opacity(
                   opacity: .7,
                   child: Text(
-                    'Ruduard Kipling',
+                    bookModel.volumeInfo.authors?[0] ?? 'Ahmed khalid',
                     style: Styles.textStyle18.copyWith(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w500,
@@ -47,9 +54,12 @@ class BookDetailViewBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 18),
-                Rating(rating: 4, count: 21),
+                Rating(
+                  rating: bookModel.volumeInfo.averageRating ?? 0,
+                  count: bookModel.volumeInfo.ratingsCount ?? 0,
+                ),
                 const SizedBox(height: 40),
-                BooksAction(),
+                BooksAction(bookModel: bookModel),
                 Expanded(child: SizedBox(height: 50)),
                 Align(
                   alignment: Alignment.centerLeft,

@@ -27,7 +27,7 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is NewestBooksFailure) {
           return CustomErrorWidget(errmessage: state.errMessage);
         } else {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         }
       },
     );
